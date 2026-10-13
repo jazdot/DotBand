@@ -1,0 +1,30 @@
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+*.apk
+
+# Android
+android/.gradle
+android/captures/
+android/**/build/
+android/local.properties
+**/local.properties
+
+# iOS
+ios/.symlinks/
+ios/Pods/
+ios/Podfile.lock
+ios/**/build/
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
