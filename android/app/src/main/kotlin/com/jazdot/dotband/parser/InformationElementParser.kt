@@ -29,13 +29,13 @@ object InformationElementParser {
      * Extracts IEEE 802.11-2016 Element ID 11 (BSS Load / QBSS).
      * Yields real-time station count and channel airtime utilization percentage (0-100%).
      */
-    fun parseQbssLoad(bytes: ByteArray): QbssLoad? {
-        if (bytes.size < 5) return null
-        val buffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN)
-        val stationCount = buffer.short.toInt() and 0xFFFF
-        val rawUtilization = buffer.get().toInt() and 0xFF
+    fun parseQbssLoad(buffer: ByteBuffer): QbssLoad? {
+        if (buffer.remaining() < 5) return null
+        val dup = buffer.duplicate().order(ByteOrder.LITTLE_ENDIAN)
+        val stationCount = dup.short.toInt() and 0xFFFF
+        val rawUtilization = dup.get().toInt() and 0xFF
         val utilizationPct = (rawUtilization / 255.0) * 100.0
-        val admissionCapacity = buffer.short.toInt() and 0xFFFF
+        val admissionCapacity = dup.short.toInt() and 0xFFFF
 
         return QbssLoad(
             stationCount = stationCount,
@@ -45,27 +45,36 @@ object InformationElementParser {
         )
     }
 
+    fun parseQbssLoad(bytes: ByteArray): QbssLoad? = parseQbssLoad(ByteBuffer.wrap(bytes))
+
     /**
      * Extracts IEEE 802.11d Element ID 7 (Country Information Element).
      * Resolves the country code string (e.g. "US ", "DE ", "JP ").
      */
-    fun parseCountryCode(bytes: ByteArray): String? {
-        if (bytes.size < 3) return null
+    fun parseCountryCode(buffer: ByteBuffer): String? {
+        if (buffer.remaining() < 3) return null
         return try {
-            val codeChars = byteArrayOf(bytes[0], bytes[1])
+            val dup = buffer.duplicate()
+            val codeChars = byteArrayOf(dup.get(), dup.get())
             String(codeChars, Charsets.US_ASCII).trim()
         } catch (_: Exception) {
             null
         }
     }
 
+    fun parseCountryCode(bytes: ByteArray): String? = parseCountryCode(ByteBuffer.wrap(bytes))
+
     /**
      * Extracts IEEE 802.11ax Element ID 255 Ext 36 (HE Operation).
      * Extracts BSS Color ID (bits 0-5) to evaluate Spatial Reuse (SR / OBSS_PD).
      */
-    fun parseHeOperation(bytes: ByteArray): HeOperationInfo? {
-        if (bytes.size < 6) return null
-        val bssColorByte = bytes[3].toInt() and 0xFF
+    fun parseHeOperation(buffer: ByteBuffer): HeOperationInfo? {
+        if (buffer.remaining() < 6) return null
+        val dup = buffer.duplicate()
+        dup.get()
+        dup.get()
+        dup.get()
+        val bssColorByte = dup.get().toInt() and 0xFF
         val bssColor = bssColorByte and 0x3F // Bits 0-5
         val isPartial = (bssColorByte and 0x40) != 0 // Bit 6
         val isDisabled = (bssColorByte and 0x80) != 0 // Bit 7
@@ -76,6 +85,8 @@ object InformationElementParser {
             isBssColorDisabled = isDisabled
         )
     }
+
+    fun parseHeOperation(bytes: ByteArray): HeOperationInfo? = parseHeOperation(ByteBuffer.wrap(bytes))
 
     /**
      * Evaluates whether a BSSID MAC address is locally administered (Mesh virtual node).

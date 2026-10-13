@@ -61,7 +61,8 @@ object MloLinkParser {
                 val stateStr = when (link.state) {
                     MloLink.MLO_LINK_STATE_ACTIVE -> "ACTIVE"
                     MloLink.MLO_LINK_STATE_IDLE -> "IDLE"
-                    MloLink.MLO_LINK_STATE_ASSOCIATED -> "ASSOCIATED"
+                    MloLink.MLO_LINK_STATE_INACTIVE -> "INACTIVE"
+                    MloLink.MLO_LINK_STATE_UNSPECIFIED -> "UNSPECIFIED"
                     else -> "UNKNOWN"
                 }
 
