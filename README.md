@@ -31,12 +31,13 @@ While legacy Wi-Fi analyzer applications remain stagnant in 2020—failing to di
 
 ## Key Capabilities
 
-1. **Simultaneous Tri-Band Visualizer**: Renders 2.4 GHz, 5 GHz, and 6 GHz spectrum congestion parabolas simultaneously in real time.
-2. **Wi-Fi 7 Multi-Link Operation (MLO) Inspector**: Uncovers bonded multi-link affiliations (`getAffiliatedMloLinks()`), aggregate bandwidth, and link steering.
-3. **WPA3-SAE vs. WPA2 Security Classifier**: Instantly flags security downgrades and verifies mandatory WPA3-SAE configurations on 6 GHz access points.
-4. **Channel Interference Score Engine**: Calculates co-channel and adjacent-channel interference (CCI/ACI) with automated optimal channel recommendations.
+1. **High-Resolution Tri-Band Visualizer**: Renders 2.4 GHz, 5 GHz, and 6 GHz spectrum congestion parabolas with interactive pinch-to-zoom (1x–10x), horizontal inertia pan, and LOD thermal clustering.
+2. **Wi-Fi 7 Multi-Link Operation (MLO) Inspector**: Uncovers bonded multi-link affiliations (`getAffiliatedMloLinks()`), aggregate bandwidth, and link steering across STR/NSTR/eMLSR topologies.
+3. **Enterprise Security & Dragonblood Sentry**: Flags WPA3-Transition downgrade vulnerabilities, OWE (Enhanced Open), PMF status, and Evil Twin AP anomalies.
+4. **Physics-Based Interference Engine**: Calculates co-channel vs. adjacent-channel interference (CCI/ACI) using spectral emission masks, with automated optimal channel recommendations.
 5. **Obsidian Luxury CAD Dark Theme**: Ad-free, tracker-free UI consistent with the Jazdot design system.
 6. **OCSF v1.3.0 & PCAP Export**: Seamlessly exports telemetry frames to enterprise SIEM platforms (`dotsec`) and cloud analytics (`dotops`).
+7. **Cross-Platform Architecture**: Full ambient RF scanning on Android (API 33–36) + Connected Link & Subnet Diagnostics with Remote Spectrum Probe support on iOS.
 
 ---
 
