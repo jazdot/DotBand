@@ -1,0 +1,81 @@
+<svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dbGoldHairline" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.1" />
+    </linearGradient>
+    <linearGradient id="dbGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="dbViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C084FC" />
+      <stop offset="100%" stop-color="#7E22CE" />
+    </linearGradient>
+    <linearGradient id="dbCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="dbAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <radialGradient id="dbGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.0" />
+    </radialGradient>
+    <radialGradient id="dbVioletGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#A855F7" stop-opacity="0.0" />
+    </radialGradient>
+  </defs>
+
+  <!-- 1. Obsidian Squircle Chassis -->
+  <rect width="400" height="400" rx="80" fill="#05070B"/>
+  <rect x="2" y="2" width="396" height="396" rx="78" stroke="url(#dbGoldHairline)" stroke-width="2" fill="none"/>
+
+  <!-- Subtle Violet/Cyan Ambient Aura in Upper Right -->
+  <circle cx="280" cy="130" r="140" fill="url(#dbVioletGlow)"/>
+
+  <!-- Technical Grid Background Markings -->
+  <line x1="80" y1="320" x2="330" y2="320" stroke="#1F2937" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <line x1="80" y1="260" x2="330" y2="260" stroke="#1F2937" stroke-width="1" stroke-dasharray="2 4"/>
+  <line x1="80" y1="200" x2="330" y2="200" stroke="#1F2937" stroke-width="1" stroke-dasharray="2 4"/>
+  <line x1="80" y1="140" x2="330" y2="140" stroke="#1F2937" stroke-width="1" stroke-dasharray="2 4"/>
+
+  <!-- Frequency Grid Legend Markings (2.4G, 5G, 6G) -->
+  <text x="80" y="338" fill="#6B7280" font-size="10" font-family="monospace" font-weight="bold">2.4G</text>
+  <text x="180" y="338" fill="#6B7280" font-size="10" font-family="monospace" font-weight="bold">5.0G</text>
+  <text x="280" y="338" fill="#A855F7" font-size="10" font-family="monospace" font-weight="bold">6.0G WI-FI 7</text>
+
+  <!-- 2. Outer 6 GHz Spectrum Wave Arc (Electric Violet) -->
+  <path d="M 80,310 A 190,190 0 0,1 320,110" 
+        stroke="url(#dbViolet)" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <!-- Subcarrier Harmonics / 320 MHz Channel Ticks on 6 GHz Arc -->
+  <circle cx="160" cy="180" r="4.5" fill="#C084FC"/>
+  <circle cx="215" cy="142" r="5" fill="#E9D5FF"/>
+  <circle cx="270" cy="120" r="5.5" fill="#C084FC"/>
+  <circle cx="320" cy="110" r="6" fill="#F3E8FF"/>
+
+  <!-- 3. Mid 5 GHz Spectrum Wave Arc (Sky Blue / Cyan) -->
+  <path d="M 95,310 A 145,145 0 0,1 278,162" 
+        stroke="url(#dbCyan)" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <circle cx="150" cy="225" r="4" fill="#38BDF8"/>
+  <circle cx="215" cy="185" r="4.5" fill="#BAE6FD"/>
+  <circle cx="278" cy="162" r="5" fill="#38BDF8"/>
+
+  <!-- 4. Inner 2.4 GHz Spectrum Wave Arc (Warm Amber Gold) -->
+  <path d="M 110,310 A 100,100 0 0,1 235,215" 
+        stroke="url(#dbAmber)" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <circle cx="155" cy="265" r="3.5" fill="#FCD34D"/>
+  <circle cx="205" cy="232" r="4" fill="#FEF3C7"/>
+
+  <!-- 5. Emitter Antenna Origin Mast (Lower Left) -->
+  <polygon points="100,315 108,295 116,315" fill="#4B5563"/>
+  <circle cx="108" cy="295" r="4" fill="#9CA3AF"/>
+
+  <!-- 6. Signature Jazdot Pulsing Gold Dot (Lower Right) -->
+  <circle cx="305" cy="285" r="42" fill="url(#dbGlow)"/>
+  <circle cx="305" cy="285" r="24" fill="url(#dbGold)"/>
+  <circle cx="305" cy="285" r="28" stroke="#FBBF24" stroke-width="2" stroke-opacity="0.6" fill="none"/>
+</svg>
