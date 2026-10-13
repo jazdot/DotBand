@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/audio/acoustic_geiger_engine.dart';
 import '../../../core/models/wifi_access_point.dart';
 import '../../../core/theme/obsidian_theme.dart';
-import '../telemetry/presentation/cubit/wifi_scan_cubit.dart';
-import '../telemetry/presentation/cubit/wifi_scan_state.dart';
+import '../../telemetry/presentation/cubit/wifi_scan_cubit.dart';
+import '../../telemetry/presentation/cubit/wifi_scan_state.dart';
 
 class SignalTimePoint {
   final int timestampMs;
@@ -322,7 +322,6 @@ class _TimeGraphPainter extends CustomPainter {
 
     int colorIdx = 0;
     for (final entry in historyMap.entries) {
-      final bssid = entry.key;
       final points = entry.value;
       if (points.isEmpty) continue;
 
@@ -335,7 +334,7 @@ class _TimeGraphPainter extends CustomPainter {
       for (final pt in points) {
         if (pt.timestampMs < startTime) continue;
         final x = ((pt.timestampMs - startTime) / (windowSeconds * 1000)) * size.width;
-        final y = _rssiToY(pt.rssi, size);
+        final y = _rssiToY(pt.rssiDbm, size);
 
         if (first) {
           path.moveTo(x, y);

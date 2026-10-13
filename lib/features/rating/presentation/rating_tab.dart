@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/models/wifi_access_point.dart';
 import '../../../core/theme/obsidian_theme.dart';
-import '../telemetry/presentation/cubit/wifi_scan_cubit.dart';
-import '../telemetry/presentation/cubit/wifi_scan_state.dart';
+import '../../telemetry/presentation/cubit/wifi_scan_cubit.dart';
+import '../../telemetry/presentation/cubit/wifi_scan_state.dart';
 import '../domain/interference_engine.dart';
 
 class RatingTab extends StatelessWidget {

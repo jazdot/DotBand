@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 enum WifiBand {
   band24G,
   band5G,

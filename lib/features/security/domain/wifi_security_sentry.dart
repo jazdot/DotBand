@@ -1,4 +1,4 @@
-import '../../../../core/models/wifi_access_point.dart';
+import '../../../core/models/wifi_access_point.dart';
 
 enum ThreatSeverity {
   info,

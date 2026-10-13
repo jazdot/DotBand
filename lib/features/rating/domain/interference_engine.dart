@@ -1,5 +1,5 @@
 import 'dart:math' as math;
-import '../../../../core/models/wifi_access_point.dart';
+import '../../../core/models/wifi_access_point.dart';
 
 class ChannelRating {
   final int channel;
@@ -120,7 +120,7 @@ class InterferenceEngine {
     return ratings;
   }
 
-  static double MathRound(double val) => math.round(val * 10.0) / 10.0;
+  static double MathRound(double val) => (val * 10.0).round() / 10.0;
 
   static List<int> _getBandChannels(WifiBand band) {
     switch (band) {
